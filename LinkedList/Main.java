@@ -8,15 +8,15 @@ public class Main {
 
     public static void main(String[] args){
 
-//        System.out.println();
-//        DetectStartOfCycle LL = new DetectStartOfCycle();
+        System.out.println();
+        SinglyLinkedList LL = new SinglyLinkedList();
 
-//        LL.insertFirst(3);
-//        LL.insertFirst(2);
-//        LL.insertFirst(1);
-//        LL.insertLast(4);
-//        LL.insertLast(5);
-//        LL.insertLast(6);
+        LL.insertFirst(3);
+        LL.insertFirst(2);
+        LL.insertFirst(1);
+        LL.insertLast(4);
+        LL.insertLast(5);
+        LL.insertLast(6);
 
 //        LL.MergeSort();
 //        LL.reverseList();
@@ -28,7 +28,7 @@ public class Main {
 //        LL.insertLast(4);
 //        LL.insertLast(5);
 
-//        LL.Display(20);
+        LL.Display(20);
 //        LL.reverseKNodes(3);
 //        LL.Display(20);
 
