@@ -1,12 +1,12 @@
 package LinkedListQuestions;
 
-public class DetectStartOfCycle {
+public class SinglyLinkedList {
 
     private static int size;
     private ListNode head;
     private ListNode tail;
 
-    public DetectStartOfCycle() {
+    public SinglyLinkedList() {
         size = 0;
     }
 
