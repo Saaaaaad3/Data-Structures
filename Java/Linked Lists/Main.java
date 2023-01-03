@@ -1,4 +1,3 @@
-import LinkedListQuestions.DetectStartOfCycle;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -9,7 +8,7 @@ public class Main {
     public static void main(String[] args){
 
         System.out.println();
-        SinglyLinkedList LL = new SinglyLinkedList();
+        SinglyLinkedLists LL = new SinglyLinkedLists();
 
         LL.insertFirst(3);
         LL.insertFirst(2);
