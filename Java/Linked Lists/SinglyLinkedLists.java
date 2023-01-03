@@ -1,12 +1,11 @@
-package LinkedListQuestions;
 
-public class SinglyLinkedList {
+public class SinglyLinkedLists {
 
     private static int size;
     private ListNode head;
     private ListNode tail;
 
-    public SinglyLinkedList() {
+    public SinglyLinkedLists() {
         size = 0;
     }
 
