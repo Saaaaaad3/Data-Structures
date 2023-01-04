@@ -411,4 +411,76 @@ public class SinglyLinkedLists {
         }
 //        return head;
     }
+
+    public ListNode DetermineStartOfCycle(ListNode head) {
+
+        //Check if list size is more than 1
+        if(head == null || head.next == null){
+            return null;
+        }
+
+        //Check if there is cycle in list
+        ListNode meetPoint =  CheckForCycle(head);
+        if(meetPoint == null){
+            return null;
+        }
+
+        //Get length of the cycle
+        int cycleLength = GetCycleLength(meetPoint);
+
+        //Determine the starting of cycle
+        ListNode startNode = DetermineStartOfCycle(head, cycleLength);
+        return startNode;
+    }
+
+    public ListNode DetermineStartOfCycle(ListNode head,int cycleLength){
+        ListNode first = head;
+        ListNode second = head;
+
+        while(cycleLength-- > 0){
+            first = first.next;
+        }
+
+        while(first != second){
+            first = first.next;
+            second = second.next;
+        }
+        return second;
+    }
+
+    public int GetCycleLength(ListNode meetPoint){
+        int cycleLength = 0;
+        ListNode temp = meetPoint;
+
+        do{
+            temp = temp.next;
+            cycleLength++;
+        }
+        while(temp != meetPoint);
+
+        return cycleLength;
+    }
+
+    public ListNode CheckForCycle(ListNode head){
+        ListNode slow = head;
+        ListNode fast = head;
+
+        slow = slow.next;
+        fast = fast.next.next;
+
+        do{
+            if(slow == null || slow.next == null){
+                return null;
+            }
+            slow = slow.next;
+
+            if(fast == null || fast.next == null){
+                return null;
+            }
+            fast = fast.next.next;
+        }
+        while(fast != slow);
+
+        return fast;
+    }
 }
