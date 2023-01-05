@@ -9,13 +9,28 @@ public class Main {
 
         System.out.println();
         SinglyLinkedLists LL = new SinglyLinkedLists();
+        DoublyLinkedLists DLL = new DoublyLinkedLists();
 
-        LL.insertFirst(3);
-        LL.insertFirst(2);
-        LL.insertFirst(1);
-        LL.insertLast(4);
-        LL.insertLast(5);
-        LL.insertLast(6);
+        DLL.insertLast(1);
+        DLL.insertLast(2);
+        DLL.insertLast(3);
+        DLL.insertLast(4);
+        DLL.insertLast(5);
+
+        System.out.print("Normal:");
+        DLL.Display();
+
+        System.out.print("Reverse:");
+        DLL.DisplayReverse();
+
+
+
+//        LL.insertFirst(3);
+//        LL.insertFirst(2);
+//        LL.insertFirst(1);
+//        LL.insertLast(4);
+//        LL.insertLast(5);
+//        LL.insertLast(6);
 
 //        LL.MergeSort();
 //        LL.reverseList();
@@ -27,7 +42,7 @@ public class Main {
 //        LL.insertLast(4);
 //        LL.insertLast(5);
 
-        LL.Display(20);
+//        LL.Display(20);
 //        LL.reverseKNodes(3);
 //        LL.Display(20);
 
