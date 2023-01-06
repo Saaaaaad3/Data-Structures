@@ -6,7 +6,6 @@ public class DoublyLinkedLists {
     public DoublyLinkedLists() {
         size = 0;
     }
-
     public class ListNode {
         private int value;
         private ListNode next;
@@ -25,11 +24,9 @@ public class DoublyLinkedLists {
             this.prev = prev;
         }
     }
-
     public int Size() {
         return size;
     }
-
     public void insertFirst(int num){
 
         ListNode node = new ListNode(num);
@@ -37,6 +34,7 @@ public class DoublyLinkedLists {
         if(head == null){
             head = node;
             tail = node;
+            size--;
             return;
         }
         node.next = head;
@@ -46,9 +44,7 @@ public class DoublyLinkedLists {
 
         size++;
     }
-
     public void insertLast(int num) {
-
         ListNode node = new ListNode(num);
         if(head == null){
             insertFirst(num);
@@ -62,9 +58,6 @@ public class DoublyLinkedLists {
         }
         size++;
     }
-
-
-
     public void Display(){
         ListNode tempHead = head;
         while(tempHead != null){
@@ -73,7 +66,6 @@ public class DoublyLinkedLists {
         }
         System.out.println("End");
     }
-
     public void DisplayReverse(){
         ListNode tempHead = tail;
         while(tempHead != null){
@@ -82,5 +74,48 @@ public class DoublyLinkedLists {
         }
         System.out.println("End");
     }
+    public void DeleteFirst(){
+        if(head == null){
+            System.out.println("The List is Empty");
+            return;
+        }
+        head = head.next;
+        size--;
+    }
+    public void DeleteLast(){
+        if(tail == null){
+            System.out.println("The List is Empty");
+            return;
+        }
+        tail = tail.prev;
+        size--;
+    }
+    public void Delete(int num){
+        if(head == null){
+            System.out.println("The List is Empty");
+        }
+        ListNode tempHead = head;
 
+        do{
+            if(tempHead.value == num){
+                if(tempHead == head){
+                    DeleteFirst();
+                    size--;
+                    return;
+                }
+                if(tempHead == tail){
+                    DeleteLast();
+                    size--;
+                    return;
+                }
+                tempHead.prev.next = tempHead.next;
+                tempHead.next.prev = tempHead.prev;
+            }
+            tempHead = tempHead.next;
+        }
+        while(tempHead != null);
+
+        size--;
+
+    }
 }
