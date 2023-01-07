@@ -31,38 +31,57 @@ public class SinglyLinkedLists {
     }
 
     public void insertFirst(int value) {
-        ListNode newHead = new ListNode(value);
+        ListNode newNode = new ListNode(value);
 
-        if (size == 0) {
-            head = newHead;
+        if (head == null) {
+            head = newNode;
+            tail = head;
             head.next = null;
 
             size++;
             return;
         }
-        newHead.next = head;
-        head = newHead;
+        newNode.next = head;
+        head = newNode;
 
         size++;
     }
 
-    public void insertLast(int value) {
+    public void insertLast(int num) {
 
-        if (head == null) {
-            insertFirst(value);
+        ListNode node = new ListNode(num);
+        if(head == null){
+            insertFirst(num);
             return;
         }
-        ListNode newTail = new ListNode(value);
-        ListNode newHeadPntr = head;
-
-        while (newHeadPntr.next != null) {
-            newHeadPntr = newHeadPntr.next;
+        if(tail != null){
+            node.next = null;
+            tail.next = node;
+            tail = node;
+            size++;
         }
-        newHeadPntr.next = newTail;
-        tail = newTail;
-        newTail.next = null;
+    }
+    public void DeleteByValue(int value) {
 
-        size++;
+        if (head == null) {
+            System.out.println("List is Empty");
+            return;
+        }
+        if (head.value == value) {
+            head = head.next;
+            size--;
+            return;
+        }
+
+        ListNode tempHead = head;
+        while (tempHead != null && tempHead.next != null){
+            if(tempHead.next.value == value){
+                tempHead.next = tempHead.next.next;
+                size--;
+                return;
+            }
+            tempHead = tempHead.next;
+        }
     }
 
     public void makeCycle(int index) {
@@ -82,6 +101,15 @@ public class SinglyLinkedLists {
         }
         tail.next = tempHeadPtnr;
 
+    }
+
+    public void Display(){
+        ListNode tempHead = head;
+        while(tempHead != null){
+            System.out.print(tempHead.value + "->");
+            tempHead = tempHead.next;
+        }
+        System.out.println("End");
     }
 
     public void Display(int count) {
