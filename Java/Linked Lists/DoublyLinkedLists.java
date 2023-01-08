@@ -118,4 +118,32 @@ public class DoublyLinkedLists {
         size--;
 
     }
+
+    public boolean DetectCycle() {
+        if (head == null) {
+            System.out.println("List is Empty");
+            return false;
+        }
+        if (PointersMeet(head) == null)
+            return false;
+
+        return true;
+    }
+
+    public ListNode PointersMeet(ListNode head) {
+        ListNode fastPtnr = head;
+        ListNode slowPtnr = head;
+
+        do {
+            if (slowPtnr.next == null || slowPtnr.next.next == null) {
+                return null;
+            }
+
+            slowPtnr = slowPtnr.next;
+            fastPtnr = fastPtnr.next.next;
+        }
+        while (slowPtnr != fastPtnr);
+
+        return slowPtnr;
+    }
 }
