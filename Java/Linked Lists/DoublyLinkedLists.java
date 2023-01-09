@@ -146,4 +146,30 @@ public class DoublyLinkedLists {
 
         return slowPtnr;
     }
+    public void reverseList{
+
+    }
+
+    public ListNode CheckForCycle(ListNode head){
+        ListNode slow = head;
+        ListNode fast = head;
+
+        slow = slow.next;
+        fast = fast.next.next;
+
+        do{
+            if(slow == null || slow.next == null){
+                return null;
+            }
+            slow = slow.next;
+
+            if(fast == null || fast.next == null){
+                return null;
+            }
+            fast = fast.next.next;
+        }
+        while(fast != slow);
+
+        return fast;
+    }
 }
