@@ -146,7 +146,7 @@ public class DoublyLinkedLists {
 
         return slowPtnr;
     }
-    public void reverseList{
+    public void reverseList(){
 
     }
 
