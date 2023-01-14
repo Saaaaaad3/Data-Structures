@@ -1,5 +1,9 @@
 package Trees;
 
+import java.util.ArrayList;
+import java.util.Queue;
+import java.util.Stack;
+
 public class InOrder {
     Node root = new Node();
     public class Node{
@@ -28,6 +32,33 @@ public class InOrder {
             System.out.print(root.val + "-");
             DisplayRec(root.right);
         }
+    }
+    public void Display(Node currNode){
+
+        ArrayList<Integer> result = new ArrayList<>();
+        Stack<Node> st = new Stack<>();
+
+//        st.push(currNode);
+
+        while(true){
+            if(currNode != null){
+                st.push(currNode);
+                currNode = currNode.left;
+            }
+            else{
+                if(st.isEmpty()) break;
+
+                currNode = st.peek();
+                result.add(currNode.val);
+                st.pop();
+                currNode = currNode.right;
+            }
+        }
+
+        for(int i=0;i<result.size();i++){
+            System.out.print("-" + result.get(i));
+        }
+
     }
     private Node addRecursive(Node currentNode, int val){
         if(currentNode == null){
