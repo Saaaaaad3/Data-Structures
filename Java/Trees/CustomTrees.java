@@ -24,6 +24,6 @@ public class CustomTrees {
         int left = DepthOfBinaryTree(root.left);
         int right = DepthOfBinaryTree(root.right);
 
-        return 1+left + right;
+        return 1+Math.max(left, right);
     }
 }
