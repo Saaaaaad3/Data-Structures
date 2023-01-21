@@ -67,6 +67,9 @@ public class DoublyLinkedLists {
         System.out.println("End");
     }
     public void DisplayReverse(){
+        if(tail == null){
+            System.out.println("List is Empty");
+        }
         ListNode tempHead = tail;
         while(tempHead != null){
             System.out.print(tempHead.value + "->");
