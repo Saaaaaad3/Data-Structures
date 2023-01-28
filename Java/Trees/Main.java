@@ -22,7 +22,7 @@ public class Main {
 //        InTree.Display(InTree.root);
 
         CustomTrees Depth = new CustomTrees();
-        System.out.println(Depth.DepthOfBinaryTree());
+//        System.out.println(Depth.DepthOfBinaryTree());
 
     }
 }
