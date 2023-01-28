@@ -25,6 +25,24 @@ public class PreOrder {
     public void add(int val){
         root = addRecursive(root,val);
     }
+    private Node addRecursive(Node currentNode, int val){
+        if(currentNode == null){
+            return new Node(val);
+        }
+
+        if(val < currentNode.val){
+            currentNode.left = addRecursive(currentNode.left,val);
+        }
+        else if(val > currentNode.val){
+            currentNode.right = addRecursive(currentNode.right,val);
+        }
+        //Value Exists already
+        else{
+            return currentNode;
+        }
+
+        return currentNode;
+    }
     public void DisplayRec(Node node){
 
         if(node != null) {
@@ -53,23 +71,5 @@ public class PreOrder {
         }
     }
 
-    private Node addRecursive(Node currentNode, int val){
-        if(currentNode == null){
-            return new Node(val);
-        }
-
-        if(val < currentNode.val){
-            currentNode.left = addRecursive(currentNode.left,val);
-        }
-        else if(val > currentNode.val){
-            currentNode.right = addRecursive(currentNode.right,val);
-        }
-        //Value Exists already
-        else{
-            return currentNode;
-        }
-
-        return currentNode;
-    }
 
 }

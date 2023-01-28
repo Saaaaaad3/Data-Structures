@@ -122,7 +122,7 @@ public class DoublyLinkedLists {
 
     }
 
-    public boolean DetectCycle() {
+    public boolean CycleExists() {
         if (head == null) {
             System.out.println("List is Empty");
             return false;
