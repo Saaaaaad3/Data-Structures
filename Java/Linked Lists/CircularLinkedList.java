@@ -1,6 +1,7 @@
 public class CircularLinkedList {
 
     private int size;
+    private Node cycleHead;
     private Node head;
     private Node tail;
     public class Node {
@@ -34,7 +35,6 @@ public class CircularLinkedList {
 
         size++;
     }
-
     public void insertLast(int value){
         Node newNode = new Node(value);
 
@@ -56,7 +56,7 @@ public class CircularLinkedList {
             insertFirst(num);
             return;
         }
-        if(index == size-1){
+        if(index == size){
             insertLast(num);
             return;
         }
@@ -80,8 +80,7 @@ public class CircularLinkedList {
         size++;
 
     }
-
-    public void Display(int max){
+    public void DisplayWithLimit(int max){
         if(head == null){
             System.out.println("List is Empty");
             return;
@@ -89,14 +88,40 @@ public class CircularLinkedList {
         Node tempNode = head;
         int count = 0;
 
-        while(tempNode != null && max > count){
-            System.out.print(tempNode.value + "->");
+        while(tempNode != null && size + max > count){
+            if(tempNode == tail){
+                System.out.print("'"+tempNode.value+"'" + "->");
+            }
+            else {
+                System.out.print(tempNode.value + "->");
+            }
             tempNode = tempNode.next;
             count++;
         }
         System.out.print("End");
+        System.out.println();
     }
 
+    public void makeCycleAt(int index){
+        if(head == null){
+            System.out.println("List is Empty");
+            return;
+        }
+        if(CycleExists()){
+            System.out.println("Cycle Already Exists");
+            return;
+        }
+        int count = 0;
+        Node tempNode = head;
+
+        while(count < index){
+            tempNode = tempNode.next;
+            count++;
+        }
+        tail.next = tempNode;
+        cycleHead = tempNode;
+
+    }
     public boolean CycleExists() {
         if (head == null) {
             System.out.println("List is Empty");
@@ -104,7 +129,6 @@ public class CircularLinkedList {
         }
         return PointersMeet(head) != null;
     }
-
     private Node PointersMeet(Node head) {
         Node fastPtnr = head;
         Node slowPtnr = head;
@@ -121,7 +145,5 @@ public class CircularLinkedList {
 
         return slowPtnr;
     }
-
-
 
 }
