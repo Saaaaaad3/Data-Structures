@@ -14,11 +14,14 @@ public class Main {
         CLL.insertFirst(2);
         CLL.insertFirst(3);
         CLL.insertFirst(4);
-        CLL.insertAtIndex(5,4);
         System.out.println(CLL.Size());
-        System.out.println(CLL.CycleExists());
+        CLL.insertAtIndex(5,4);
+//        System.out.println(CLL.CycleExists());
+//        System.out.println(CLL.CycleExists());
 
-        CLL.Display(20);
+        CLL.DisplayWithLimit(20);
+        CLL.makeCycleAt(1);
+        CLL.DisplayWithLimit(20);
 
     }
 }
