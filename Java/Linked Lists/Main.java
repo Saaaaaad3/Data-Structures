@@ -8,16 +8,20 @@ public class Main {
     public static void main(String[] args){
 
         System.out.println();
-        SinglyLinkedLists LL = new SinglyLinkedLists();
+        CircularLinkedList CLL = new CircularLinkedList();
 
-        LL.insertFirst(1);
-        LL.insertFirst(2);
-        LL.insertLast(3);
-        LL.insertLast(4);
-        LL.insertLast(5);
-        LL.DeleteByValue(4);
+        CLL.insertFirst(1);
+        CLL.insertFirst(2);
+        CLL.insertFirst(3);
+        CLL.insertFirst(4);
+        System.out.println(CLL.Size());
+        CLL.insertAtIndex(5,4);
+//        System.out.println(CLL.CycleExists());
+//        System.out.println(CLL.CycleExists());
 
-        LL.Display();
+        CLL.DisplayWithLimit(20);
+        CLL.makeCycleAt(1);
+        CLL.DisplayWithLimit(20);
 
     }
 }
